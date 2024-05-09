@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            text-align: center;
+            text-decoration: underline;
+        }
+        
+        input[type="text"],
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Calculator</h2>
+        <input id="num_1" type="text" name="text" placeholder="Enter first number"><br>
+        <select id="operator">
+            <option>Operators</option>
+            <option value="addition">+</option>
+            <option value="substraction">-</option>
+            <option value="multiplication">×</option>
+            <option value="division">/</option>
+        </select><br>
+        <input id="num_2" type="text" name="text" placeholder="Enter second number"><br>
+        <button onclick="btn()">=</button>
+        <input id="result" type="text" name="text" placeholder="Result" readonly>
+    </div>
+
+    <script>
+        let result, x, y, option;
+
+        function addition(num1, num2) {
+            result = num1 + num2;
+        }
+
+        function substraction(num1, num2) {
+            result = num1 - num2;
+        }
+
+        function multiplication(num1, num2) {
+            result = num1 * num2;
+        }
+
+        function division(num1, num2) {
+            result = num1 / num2;
+        }
+
+        function btn() {
+            x = Number(document.getElementById('num_1').value);
+            y = Number(document.getElementById('num_2').value);
+            option = document.getElementById('operator').value;
+            if (option == "addition") {
+                addition(x, y);
+            } else if (option == "substraction") {
+                substraction(x, y);
+            } else if (option == "multiplication") {
+                multiplication(x, y);
+            } else if (option == "division") {
+                division(x, y);
+            }
+            document.getElementById('result').value = result;
+        }
+    </script>
+</body>
+</html>
