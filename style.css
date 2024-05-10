@@ -21,9 +21,7 @@ h2 {
     text-decoration: underline;
 }
 
-input[type="text"],
-select,
-button {
+input[type="number"],select,button {
     width: 100%;
     padding: 10px;
     margin: 5px 0;
